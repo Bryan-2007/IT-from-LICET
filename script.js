@@ -16,15 +16,54 @@ const Navbar = () => {
 
 // Film Reel component with old film effect
 const FilmReel = ({ isOpen }) => {
-    // Generate 45 images (15 per row) for seamless infinite loop
-    const images = Array.from({ length: 45 }, (_, i) => ({
-        id: i,
-        row: Math.floor(i / 15) + 1
-    }));
+    const [imageList, setImageList] = React.useState([]);
+    const [loading, setLoading] = React.useState(true);
 
-    const row1 = images.filter(img => img.row === 1);
-    const row2 = images.filter(img => img.row === 2);
-    const row3 = images.filter(img => img.row === 3);
+    // Load images from JSON config
+    React.useEffect(() => {
+        fetch('images.json')
+            .then(response => response.json())
+            .then(data => {
+                // Replicate images to fill 45 slots (15 per row)
+                const loadedImages = data.images || [];
+                const images = [];
+                
+                if (loadedImages.length > 0) {
+                    for (let i = 0; i < 45; i++) {
+                        images.push({
+                            id: i,
+                            src: `images/${loadedImages[i % loadedImages.length]}`,
+                            row: Math.floor(i / 15) + 1
+                        });
+                    }
+                } else {
+                    // Fallback: show 45 placeholder items if no images loaded
+                    images.push(...Array.from({ length: 45 }, (_, i) => ({
+                        id: i,
+                        src: null,
+                        row: Math.floor(i / 15) + 1
+                    })));
+                }
+                
+                setImageList(images);
+                setLoading(false);
+            })
+            .catch(error => {
+                console.error('Error loading images:', error);
+                setLoading(false);
+            });
+    }, []);
+
+    const row1 = imageList.filter(img => img.row === 1);
+    const row2 = imageList.filter(img => img.row === 2);
+    const row3 = imageList.filter(img => img.row === 3);
+
+    const ImageFrame = ({ imageSrc }) => {
+        if (imageSrc) {
+            return <img src={imageSrc} alt="Film reel" style={{ width: '100%', height: '100%', borderRadius: '3px', objectFit: 'cover' }} />;
+        }
+        return <div className="image-frame"></div>;
+    };
 
     return (
         <div id="film-reel" className={`film-reel-section ${isOpen ? 'film-reel-open' : ''}`}>
@@ -38,12 +77,12 @@ const FilmReel = ({ isOpen }) => {
                     <div className="film-scroll-track">
                         {row1.map((img) => (
                             <div key={`row1-${img.id}`} className="film-image">
-                                <div className="image-frame"></div>
+                                <ImageFrame imageSrc={img.src} />
                             </div>
                         ))}
                         {row1.map((img) => (
                             <div key={`row1-dup-${img.id}`} className="film-image">
-                                <div className="image-frame"></div>
+                                <ImageFrame imageSrc={img.src} />
                             </div>
                         ))}
                     </div>
@@ -54,12 +93,12 @@ const FilmReel = ({ isOpen }) => {
                     <div className="film-scroll-track">
                         {row2.map((img) => (
                             <div key={`row2-${img.id}`} className="film-image">
-                                <div className="image-frame"></div>
+                                <ImageFrame imageSrc={img.src} />
                             </div>
                         ))}
                         {row2.map((img) => (
                             <div key={`row2-dup-${img.id}`} className="film-image">
-                                <div className="image-frame"></div>
+                                <ImageFrame imageSrc={img.src} />
                             </div>
                         ))}
                     </div>
@@ -70,12 +109,12 @@ const FilmReel = ({ isOpen }) => {
                     <div className="film-scroll-track">
                         {row3.map((img) => (
                             <div key={`row3-${img.id}`} className="film-image">
-                                <div className="image-frame"></div>
+                                <ImageFrame imageSrc={img.src} />
                             </div>
                         ))}
                         {row3.map((img) => (
                             <div key={`row3-dup-${img.id}`} className="film-image">
-                                <div className="image-frame"></div>
+                                <ImageFrame imageSrc={img.src} />
                             </div>
                         ))}
                     </div>
