@@ -21,7 +21,7 @@ const FilmReel = ({ isOpen }) => {
 
     // Load images from JSON config
     React.useEffect(() => {
-        fetch('images.json')
+        fetch('/images.json')
             .then(response => response.json())
             .then(data => {
                 // Replicate images to fill 45 slots (15 per row)
@@ -32,7 +32,7 @@ const FilmReel = ({ isOpen }) => {
                     for (let i = 0; i < 45; i++) {
                         images.push({
                             id: i,
-                            src: `images/${loadedImages[i % loadedImages.length]}`,
+                            src: `/images/${loadedImages[i % loadedImages.length]}`,
                             row: Math.floor(i / 15) + 1
                         });
                     }
