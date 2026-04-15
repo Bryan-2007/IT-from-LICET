@@ -221,27 +221,27 @@ const Stats = () => {
 const Team = () => {
     const facultyData = [
         {
-            name: "Dr. Rajesh Kumar",
-            role: "Department Head"
+            name: "Mr. Marshal Mano",
+            role: "Professor of WE"
         },
         {
-            name: "Prof. Priya Singh",
+            name: "Prof. Sherill Sophie Maria Vincent",
             role: "AI & ML Specialist"
         },
         {
-            name: "Prof. Amit Sharma",
+            name: "Prof. Juliana",
             role: "Cloud Architecture Expert"
         },
         {
-            name: "Dr. Neha Patel",
+            name: "Dr. Laila K",
             role: "Cybersecurity Lead"
         },
         {
-            name: "Prof. Vikram Verma",
-            role: "Web Development Lead"
+            name: "Prof. Sylvia Irish",
+            role: "Full stack Development Lead"
         },
         {
-            name: "Prof. Ananya Gupta",
+            name: "Prof. Deepa",
             role: "Data Science Expert"
         }
     ];
