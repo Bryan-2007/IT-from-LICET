@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import './App.css';
 
 // Navbar component
@@ -322,6 +323,7 @@ function App() {
             <Stats />
             <Team />
             <Footer />
+            <Analytics />
         </>
     );
 }
