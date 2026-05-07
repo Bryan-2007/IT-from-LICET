@@ -358,6 +358,28 @@ body {
   animation: dustFloat 4s ease-in-out infinite;
 }
 
+.film-close-button {
+  position: absolute;
+  right: 24px;
+  bottom: 18px;
+  z-index: 20;
+  background: #ffffff;
+  color: #0066cc;
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.film-close-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
 /* Scrolling animations */
 
 @keyframes scrollLeft {

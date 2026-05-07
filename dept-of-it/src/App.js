@@ -19,7 +19,7 @@ const Navbar = () => {
 };
 
 // Film Reel component with old film effect
-const FilmReel = ({ isOpen }) => {
+const FilmReel = ({ isOpen, onClose }) => {
     const [imageList, setImageList] = useState([]);
 
     useEffect(() => {
@@ -123,6 +123,9 @@ const FilmReel = ({ isOpen }) => {
             <div className="film-grain"></div>
             <div className="film-scratches"></div>
             <div className="film-dust"></div>
+            <button className="film-close-button" type="button" onClick={onClose} aria-label="Close photo display">
+                Close
+            </button>
         </div>
     );
 };
@@ -156,7 +159,7 @@ const Hero = () => {
                 <button className="cta-button" onClick={handleClickHere}>Click Here!</button>
                 <button className="cta-button">Contact Us</button>
             </section>
-            <FilmReel isOpen={showFilmReel} />
+            <FilmReel isOpen={showFilmReel} onClose={() => setShowFilmReel(false)} />
         </>
     );
 };
