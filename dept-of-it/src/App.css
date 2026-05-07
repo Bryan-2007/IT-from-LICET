@@ -301,6 +301,11 @@ body {
   display: block;
 }
 
+.film-image:hover .film-frame-image {
+  object-fit: contain;
+  background: #0a0a0a;
+}
+
 /* Film grain effect */
 
 .film-grain {
