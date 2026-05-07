@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
 // Navbar component
@@ -19,15 +19,48 @@ const Navbar = () => {
 
 // Film Reel component with old film effect
 const FilmReel = ({ isOpen }) => {
-    // Generate 45 images (15 per row) for seamless infinite loop
-    const images = Array.from({ length: 45 }, (_, i) => ({
-        id: i,
-        row: Math.floor(i / 15) + 1
-    }));
+    const [imageList, setImageList] = useState([]);
 
-    const row1 = images.filter(img => img.row === 1);
-    const row2 = images.filter(img => img.row === 2);
-    const row3 = images.filter(img => img.row === 3);
+    useEffect(() => {
+        fetch('/images.json')
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Unable to load image list');
+                }
+
+                return response.json();
+            })
+            .then((data) => {
+                const loadedImages = data.images || [];
+                const images = Array.from({ length: 45 }, (_, i) => ({
+                    id: i,
+                    src: loadedImages.length ? `/images/${loadedImages[i % loadedImages.length]}` : null,
+                    row: Math.floor(i / 15) + 1
+                }));
+
+                setImageList(images);
+            })
+            .catch((error) => {
+                console.error('Error loading images:', error);
+                setImageList(Array.from({ length: 45 }, (_, i) => ({
+                    id: i,
+                    src: null,
+                    row: Math.floor(i / 15) + 1
+                })));
+            });
+    }, []);
+
+    const row1 = imageList.filter(img => img.row === 1);
+    const row2 = imageList.filter(img => img.row === 2);
+    const row3 = imageList.filter(img => img.row === 3);
+
+    const ImageFrame = ({ imageSrc }) => {
+        if (imageSrc) {
+            return <img className="film-frame-image" src={imageSrc} alt="Department event" />;
+        }
+
+        return <div className="image-frame"></div>;
+    };
 
     return (
         <div id="film-reel" className={`film-reel-section ${isOpen ? 'film-reel-open' : ''}`}>
@@ -41,12 +74,12 @@ const FilmReel = ({ isOpen }) => {
                     <div className="film-scroll-track">
                         {row1.map((img) => (
                             <div key={`row1-${img.id}`} className="film-image">
-                                <div className="image-frame"></div>
+                                <ImageFrame imageSrc={img.src} />
                             </div>
                         ))}
                         {row1.map((img) => (
                             <div key={`row1-dup-${img.id}`} className="film-image">
-                                <div className="image-frame"></div>
+                                <ImageFrame imageSrc={img.src} />
                             </div>
                         ))}
                     </div>
@@ -57,12 +90,12 @@ const FilmReel = ({ isOpen }) => {
                     <div className="film-scroll-track">
                         {row2.map((img) => (
                             <div key={`row2-${img.id}`} className="film-image">
-                                <div className="image-frame"></div>
+                                <ImageFrame imageSrc={img.src} />
                             </div>
                         ))}
                         {row2.map((img) => (
                             <div key={`row2-dup-${img.id}`} className="film-image">
-                                <div className="image-frame"></div>
+                                <ImageFrame imageSrc={img.src} />
                             </div>
                         ))}
                     </div>
@@ -73,12 +106,12 @@ const FilmReel = ({ isOpen }) => {
                     <div className="film-scroll-track">
                         {row3.map((img) => (
                             <div key={`row3-${img.id}`} className="film-image">
-                                <div className="image-frame"></div>
+                                <ImageFrame imageSrc={img.src} />
                             </div>
                         ))}
                         {row3.map((img) => (
                             <div key={`row3-dup-${img.id}`} className="film-image">
-                                <div className="image-frame"></div>
+                                <ImageFrame imageSrc={img.src} />
                             </div>
                         ))}
                     </div>
@@ -133,14 +166,14 @@ const About = () => {
         <section className="about" id="about">
             <h2>About IT Department</h2>
             <p>
-                The Information Technology Department at LICET is a hub of innovation and creativity 🚀. 
+                The Information Technology Department at LICET is a hub of innovation and creativity.
                 Established with a vision to empower students with cutting-edge technical skills, the department 
                 focuses on areas like software development, artificial intelligence, and blockchain technologies.
             </p>
             
             <p>
                 Our students consistently excel in national-level competitions, research publications, and 
-                industry placements 💼. With experienced faculty and modern infrastructure, we nurture future-ready engineers.
+                industry placements. With experienced faculty and modern infrastructure, we nurture future-ready engineers.
             </p>
         </section>
     );
