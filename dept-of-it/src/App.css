@@ -239,7 +239,7 @@ body {
 }
 
 .film-image:hover {
-  transform: scale(1.35) translateY(-25px);
+  transform: scale(1.755) translateY(-25px);
   border-color: #0066cc;
   border-width: 3px;
   box-shadow: 
