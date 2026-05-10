@@ -750,6 +750,33 @@ body {
   margin: 22px 0 12px;
 }
 
+.student-year-list {
+  display: grid;
+  gap: 12px;
+  margin: 22px 0 18px;
+}
+
+.student-year-item {
+  align-items: center;
+  background: #f7fbff;
+  border-left: 4px solid #00a6a6;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 14px;
+}
+
+.student-year-item span {
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+.student-year-item strong {
+  color: #0066cc;
+  font-size: 24px;
+  line-height: 1;
+}
+
 .labs-card {
   min-height: 260px;
 }

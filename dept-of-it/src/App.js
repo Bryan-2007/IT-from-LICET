@@ -269,7 +269,24 @@ const About = () => {
 
                     <div className="kpi-card student-card">
                         <h3>Total IT Students</h3>
-                        <p className="student-count">Update</p>
+                        <div className="student-year-list" aria-label="Total IT students by year">
+                            <div className="student-year-item">
+                                <span>Ist year</span>
+                                <strong>70</strong>
+                            </div>
+                            <div className="student-year-item">
+                                <span>2nd year</span>
+                                <strong>66</strong>
+                            </div>
+                            <div className="student-year-item">
+                                <span>3rd year</span>
+                                <strong>57</strong>
+                            </div>
+                            <div className="student-year-item">
+                                <span>4th year</span>
+                                <strong>63</strong>
+                            </div>
+                        </div>
                         <p className="kpi-caption">Students across all 4 years</p>
                     </div>
 
