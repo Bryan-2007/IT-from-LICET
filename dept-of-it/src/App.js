@@ -198,7 +198,7 @@ const About = () => {
     return (
         <>
             <section className="about" id="about">
-                <h2>About IT Department</h2>
+                <h2>About Us</h2>
                 <p>
                     The Information Technology (IT) Department at Loyola-ICAM College of Engineering and Technology (LICET)
                     was founded in 2010. It was established alongside the college itself, which was founded through a joint
@@ -232,7 +232,7 @@ const About = () => {
             <section className="kpi-dashboard" aria-labelledby="kpi-title">
                 <div className="kpi-header">
                     <p>15+ years of excellence</p>
-                    <h2 id="kpi-title">Department KPI Dashboard</h2>
+                    <h2 id="kpi-title">Performance Dashboard</h2>
                 </div>
 
                 <div className="kpi-grid">

@@ -11,6 +11,6 @@ test('renders the LICET IT landing page and navigates between pages', () => {
   expect(navbar).toBeInTheDocument();
 
   fireEvent.click(within(navbar).getByRole('link', { name: 'About' }));
-  expect(screen.getByRole('heading', { name: /about it department/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /about us/i })).toBeInTheDocument();
   expect(window.location.pathname).toBe('/about');
 });
