@@ -199,15 +199,17 @@ const About = () => {
         <>
             <section className="about" id="about">
                 <h2>About Us</h2>
-                <figure className="about-image-placeholder">
-                    <img src="/images/it-group.jpg" alt="LICET Information Technology department group" />
-                </figure>
+
                 <p>
                     The Information Technology (IT) Department at Loyola-ICAM College of Engineering and Technology (LICET)
                     was founded in 2010. It was established alongside the college itself, which was founded through a joint
                     venture between the Loyola College Society and ICAM, France. The department was created to provide
                     technical education focusing on bridging the gap between academia and industry.
                 </p>
+
+                <figure className="about-image-placeholder">
+                    <img src="/images/it-group.jpg" alt="LICET Information Technology department group" />
+                </figure>
 
                 <div className="vision-mission">
                     <div>
