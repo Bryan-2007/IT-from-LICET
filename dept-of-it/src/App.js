@@ -188,23 +188,90 @@ const Hero = () => {
 
 // About section component
 const About = () => {
+    const labs = [
+        { name: "Programming Lab", venue: "IT Department Lab" },
+        { name: "Networks Lab", venue: "IT Department Lab" },
+        { name: "Data Science Lab", venue: "IT Department Lab" },
+        { name: "Project Lab", venue: "IT Department Lab" }
+    ];
+
     return (
-        <section className="about" id="about">
-            <h2>About IT Department</h2>
-            <p>
-                The Information Technology Department at LICET is a hub of innovation and creativity.
-                Established with a vision to empower students with cutting-edge technical skills, the department 
-                focuses on areas like software development, artificial intelligence, and blockchain technologies.
-            </p>
-            
-            <p>
-                Our students consistently excel in national-level competitions, research publications, and 
-                industry placements. With experienced faculty and modern infrastructure, we nurture future-ready engineers.
-            </p>
-        </section>
+        <>
+            <section className="about" id="about">
+                <h2>About IT Department</h2>
+                <p>
+                    The Information Technology (IT) Department at Loyola-ICAM College of Engineering and Technology (LICET)
+                    was founded in 2010. It was established alongside the college itself, which was founded through a joint
+                    venture between the Loyola College Society and ICAM, France. The department was created to provide
+                    technical education focusing on bridging the gap between academia and industry.
+                </p>
+
+                <div className="vision-mission">
+                    <div>
+                        <h3>Vision</h3>
+                        <p>
+                            To build proficient Information Technologists through moral, ethical, and technological standards
+                            for the societal well-being.
+                        </p>
+                    </div>
+                    <div>
+                        <h3>Mission</h3>
+                        <ul>
+                            <li><strong>M1:</strong> Offering practical, contemporary IT education for societal benefit.</li>
+                            <li><strong>M2:</strong> Cultivating career-ready, ethical professionals with entrepreneurial skills for emerging technologies.</li>
+                            <li><strong>M3:</strong> Fostering global, industry-aligned partnerships for mutual growth.</li>
+                            <li><strong>M4:</strong> Encouraging innovative, interdisciplinary research.</li>
+                        </ul>
+                        <p>
+                            These objectives align with LICET's broader goal of forming socially responsible engineers.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section className="kpi-dashboard" aria-labelledby="kpi-title">
+                <div className="kpi-header">
+                    <p>15+ years of excellence</p>
+                    <h2 id="kpi-title">Department KPI Dashboard</h2>
+                </div>
+
+                <div className="kpi-grid">
+                    <div className="kpi-card placement-card">
+                        <h3>Placements to Companies</h3>
+                        <p className="kpi-caption">Last 3 years and overall placement rate</p>
+                        <div className="placement-chart-wrap">
+                            <div className="placement-chart" aria-label="Placement rate chart">
+                                <span>Update %</span>
+                            </div>
+                            <div className="chart-legend">
+                                <span><i className="legend-dot placed"></i>Placed students</span>
+                                <span><i className="legend-dot pending"></i>Higher studies / in progress</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="kpi-card student-card">
+                        <h3>Total IT Students</h3>
+                        <p className="student-count">Update</p>
+                        <p className="kpi-caption">Students across all 4 years</p>
+                    </div>
+
+                    <div className="kpi-card labs-card">
+                        <h3>IT Labs & Venues</h3>
+                        <div className="labs-list">
+                            {labs.map((lab) => (
+                                <div className="lab-item" key={lab.name}>
+                                    <span>{lab.name}</span>
+                                    <strong>{lab.venue}</strong>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </>
     );
 };
-
 // Services section component
 const Services = () => {
     const servicesData = [
@@ -398,3 +465,4 @@ function App() {
 }
 
 export default App;
+
