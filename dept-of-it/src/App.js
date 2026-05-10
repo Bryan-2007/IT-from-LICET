@@ -248,16 +248,16 @@ const About = () => {
                             <div className="placement-chart" aria-label="Placement rate chart">
                                 <span>70%</span>
                                 <div className="placement-breakdown" aria-hidden="true">
-                                    <span className="breakdown-unplaced">Higher studies / in progress - 30%</span>
-                                    <span>IBM - 3%</span>
-                                    <span>Microsoft - 2%</span>
-                                    <span>Cognizant - 15%</span>
-                                    <span>Infosys - 10%</span>
-                                    <span>Wipro - 15%</span>
-                                    <span>TCS - 8%</span>
-                                    <span>Amazon - 2%</span>
-                                    <span>Mahindra - 9%</span>
-                                    <span>Zoho - 6%</span>
+                                    <span><i className="breakdown-dot breakdown-unplaced"></i>Higher studies / in progress - 30%</span>
+                                    <span><i className="breakdown-dot breakdown-ibm"></i>IBM - 3%</span>
+                                    <span><i className="breakdown-dot breakdown-microsoft"></i>Microsoft - 2%</span>
+                                    <span><i className="breakdown-dot breakdown-cognizant"></i>Cognizant - 15%</span>
+                                    <span><i className="breakdown-dot breakdown-infosys"></i>Infosys - 10%</span>
+                                    <span><i className="breakdown-dot breakdown-wipro"></i>Wipro - 15%</span>
+                                    <span><i className="breakdown-dot breakdown-tcs"></i>TCS - 8%</span>
+                                    <span><i className="breakdown-dot breakdown-amazon"></i>Amazon - 2%</span>
+                                    <span><i className="breakdown-dot breakdown-mahindra"></i>Mahindra - 9%</span>
+                                    <span><i className="breakdown-dot breakdown-zoho"></i>Zoho - 6%</span>
                                 </div>
                             </div>
                             <div className="chart-legend">

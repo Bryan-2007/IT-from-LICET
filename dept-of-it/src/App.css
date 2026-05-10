@@ -652,14 +652,61 @@ body {
 }
 
 .placement-breakdown span {
+  align-items: center;
   color: #344054;
+  display: flex;
   font-size: 13px;
   font-weight: 700;
+  gap: 8px;
   line-height: 1.25;
 }
 
-.placement-breakdown .breakdown-unplaced {
-  color: #00827f;
+.breakdown-dot {
+  border-radius: 50%;
+  display: inline-block;
+  flex: 0 0 10px;
+  height: 10px;
+  width: 10px;
+}
+
+.breakdown-unplaced {
+  background: #00a6a6;
+}
+
+.breakdown-ibm {
+  background: #3157a4;
+}
+
+.breakdown-microsoft {
+  background: #7373d9;
+}
+
+.breakdown-cognizant {
+  background: #1f8fbc;
+}
+
+.breakdown-infosys {
+  background: #22a875;
+}
+
+.breakdown-wipro {
+  background: #e15f41;
+}
+
+.breakdown-tcs {
+  background: #f4a62a;
+}
+
+.breakdown-amazon {
+  background: #5468ff;
+}
+
+.breakdown-mahindra {
+  background: #8f5ac7;
+}
+
+.breakdown-zoho {
+  background: #0f9d8f;
 }
 
 .chart-legend {
