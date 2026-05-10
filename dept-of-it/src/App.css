@@ -40,6 +40,7 @@ body {
   letter-spacing: 1px;
   color: #0066cc;
   font-family: 'Georgia', serif;
+  text-decoration: none;
 }
 
 /* logo emphasis styling */
@@ -94,8 +95,17 @@ body {
   color: #0066cc;
 }
 
-.nav-links a:hover::after {
+.nav-links a:hover::after,
+.nav-links a.active-link::after {
   width: 100%;
+}
+
+.nav-links a.active-link {
+  color: #0066cc;
+}
+
+.page-content {
+  min-height: calc(100vh - 188px);
 }
 
 /* hero section styling */
@@ -633,6 +643,10 @@ footer p {
 }
 
 .footer-links a:hover {
+  color: white;
+}
+
+.footer-links a.active-link {
   color: white;
 }
 

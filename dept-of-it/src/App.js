@@ -2,17 +2,39 @@ import React, { useEffect, useState } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import './App.css';
 
+const pages = [
+    { path: '/', label: 'Home', key: 'home' },
+    { path: '/about', label: 'About', key: 'about' },
+    { path: '/services', label: 'Services', key: 'services' },
+    { path: '/achievements', label: 'Achievements', key: 'achievements' },
+    { path: '/faculty', label: 'Faculty', key: 'faculty' }
+];
+
+const getPageFromPath = () => {
+    const currentPath = window.location.pathname;
+    return pages.find((page) => page.path === currentPath)?.key || 'home';
+};
+
 // Navbar component
-const Navbar = () => {
+const Navbar = ({ currentPage, onNavigate }) => {
     return (
         <nav className="navbar">
-            <div className="logo"><span className="logo-main">IT</span> <span className="logo-sub">OF LICET</span></div>
+            <a className="logo" href="/" onClick={(event) => onNavigate(event, '/')}>
+                <span className="logo-main">IT</span> <span className="logo-sub">OF LICET</span>
+            </a>
             
             <ul className="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#team">Faculty</a></li>
+                {pages.map((page) => (
+                    <li key={page.key}>
+                        <a
+                            className={currentPage === page.key ? 'active-link' : ''}
+                            href={page.path}
+                            onClick={(event) => onNavigate(event, page.path)}
+                        >
+                            {page.label}
+                        </a>
+                    </li>
+                ))}
             </ul>
         </nav>
     );
@@ -299,15 +321,22 @@ const Team = () => {
 };
 
 // Footer component
-const Footer = () => {
+const Footer = ({ currentPage, onNavigate }) => {
     return (
         <footer>
             <h3>LICET - Information Technology Department</h3>
             <ul className="footer-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#team">Faculty</a></li>
+                {pages.map((page) => (
+                    <li key={page.key}>
+                        <a
+                            className={currentPage === page.key ? 'active-link' : ''}
+                            href={page.path}
+                            onClick={(event) => onNavigate(event, page.path)}
+                        >
+                            {page.label}
+                        </a>
+                    </li>
+                ))}
             </ul>
             <p>&copy; 2024 LICET IT Department. All rights reserved.</p>
             <p>Empowering Tomorrow's Technology Leaders</p>
@@ -315,17 +344,54 @@ const Footer = () => {
     );
 };
 
+const PageContent = ({ currentPage }) => {
+    switch (currentPage) {
+        case 'about':
+            return <About />;
+        case 'services':
+            return <Services />;
+        case 'achievements':
+            return <Stats />;
+        case 'faculty':
+            return <Team />;
+        case 'home':
+        default:
+            return <Hero />;
+    }
+};
+
 // Main App component
 function App() {
+    const [currentPage, setCurrentPage] = useState(getPageFromPath);
+
+    useEffect(() => {
+        const handlePopState = () => {
+            setCurrentPage(getPageFromPath());
+            window.scrollTo({ top: 0, behavior: 'auto' });
+        };
+
+        window.addEventListener('popstate', handlePopState);
+        return () => window.removeEventListener('popstate', handlePopState);
+    }, []);
+
+    const handleNavigate = (event, path) => {
+        event.preventDefault();
+
+        if (window.location.pathname !== path) {
+            window.history.pushState({}, '', path);
+        }
+
+        setCurrentPage(getPageFromPath());
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
     return (
         <>
-            <Navbar />
-            <Hero />
-            <About />
-            <Services />
-            <Stats />
-            <Team />
-            <Footer />
+            <Navbar currentPage={currentPage} onNavigate={handleNavigate} />
+            <main className="page-content">
+                <PageContent currentPage={currentPage} />
+            </main>
+            <Footer currentPage={currentPage} onNavigate={handleNavigate} />
             <Analytics />
         </>
     );
