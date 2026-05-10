@@ -283,7 +283,7 @@ body {
 }
 
 .image-frame::before {
-  content: "ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸Ãƒâ€¦Ã‚Â½Ãƒâ€šÃ‚Â¬";
+  content: "ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â°ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¸ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â½ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬";
 }
 
 .image-frame::after {
@@ -471,6 +471,24 @@ body {
   font-weight: 700;
 }
 
+.about-image-placeholder {
+  background: #eef3f8;
+  border: 2px dashed rgba(0, 102, 204, 0.28);
+  border-radius: 8px;
+  margin: 0 auto 34px;
+  max-width: 980px;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.about-image-placeholder img {
+  aspect-ratio: 16 / 7;
+  border-radius: 6px;
+  display: block;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
 .about p {
   font-size: 16px;
   color: #666;
