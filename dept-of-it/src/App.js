@@ -246,7 +246,19 @@ const About = () => {
                         <p className="kpi-caption">Last 3 years and overall placement rate</p>
                         <div className="placement-chart-wrap">
                             <div className="placement-chart" aria-label="Placement rate chart">
-                                <span>Update %</span>
+                                <span>70%</span>
+                                <div className="placement-breakdown" aria-hidden="true">
+                                    <span className="breakdown-unplaced">Higher studies / in progress - 30%</span>
+                                    <span>IBM - 3%</span>
+                                    <span>Microsoft - 2%</span>
+                                    <span>Cognizant - 15%</span>
+                                    <span>Infosys - 10%</span>
+                                    <span>Wipro - 15%</span>
+                                    <span>TCS - 8%</span>
+                                    <span>Amazon - 2%</span>
+                                    <span>Mahindra - 9%</span>
+                                    <span>Zoho - 6%</span>
+                                </div>
                             </div>
                             <div className="chart-legend">
                                 <span><i className="legend-dot placed"></i>Placed students</span>

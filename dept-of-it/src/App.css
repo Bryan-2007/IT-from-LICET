@@ -582,13 +582,31 @@ body {
 .placement-chart {
   align-items: center;
   aspect-ratio: 1;
-  background: conic-gradient(#0066cc 0 72%, #00a6a6 72% 100%);
+  background: conic-gradient(#0066cc 0 70%, #00a6a6 70% 100%);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   max-width: 320px;
   position: relative;
+  transition: background 0.25s ease, transform 0.25s ease;
   width: 100%;
+}
+
+.placement-chart:hover,
+.placement-chart:focus-within {
+  background: conic-gradient(
+    #00a6a6 0 30%,
+    #3157a4 30% 33%,
+    #7373d9 33% 35%,
+    #1f8fbc 35% 50%,
+    #22a875 50% 60%,
+    #e15f41 60% 75%,
+    #f4a62a 75% 83%,
+    #5468ff 83% 85%,
+    #8f5ac7 85% 94%,
+    #0f9d8f 94% 100%
+  );
+  transform: scale(1.02);
 }
 
 .placement-chart::after {
@@ -600,12 +618,48 @@ body {
   width: 58%;
 }
 
-.placement-chart span {
+.placement-chart > span {
   color: #0066cc;
   font-size: 26px;
   font-weight: 800;
   position: relative;
   z-index: 1;
+}
+
+.placement-breakdown {
+  background: #ffffff;
+  border: 1px solid rgba(0, 102, 204, 0.14);
+  border-radius: 8px;
+  box-shadow: 0 14px 34px rgba(20, 42, 80, 0.16);
+  display: grid;
+  gap: 7px;
+  left: calc(100% + 18px);
+  opacity: 0;
+  padding: 14px 16px;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(-6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  width: 230px;
+  z-index: 4;
+}
+
+.placement-chart:hover .placement-breakdown,
+.placement-chart:focus-within .placement-breakdown {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+.placement-breakdown span {
+  color: #344054;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.placement-breakdown .breakdown-unplaced {
+  color: #00827f;
 }
 
 .chart-legend {
@@ -697,6 +751,18 @@ body {
 
   .placement-chart {
     margin: 0 auto;
+  }
+
+  .placement-breakdown {
+    left: 50%;
+    top: calc(100% + 14px);
+    transform: translateX(-50%) translateY(-6px);
+    width: min(260px, 88vw);
+  }
+
+  .placement-chart:hover .placement-breakdown,
+  .placement-chart:focus-within .placement-breakdown {
+    transform: translateX(-50%) translateY(0);
   }
 }
 
