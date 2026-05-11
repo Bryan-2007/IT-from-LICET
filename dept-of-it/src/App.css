@@ -827,8 +827,9 @@ body {
   text-align: right;
 }
 
-.achievements-mini {
-  flex: 0.95 1 0;
+.achievements-card {
+  align-content: start;
+  min-height: 260px;
 }
 
 .achievement-mini-list {

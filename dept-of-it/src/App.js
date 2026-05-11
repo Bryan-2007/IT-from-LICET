@@ -326,16 +326,17 @@ const About = () => {
                                     ))}
                                 </div>
                             </div>
-                            <div className="venue-group achievements-mini">
-                                <h4>Latest Achievements</h4>
-                                <div className="achievement-mini-list">
-                                    {latestAchievements.map((achievement) => (
-                                        <div className="achievement-mini-item" key={achievement}>
-                                            <span>{achievement}</span>
-                                        </div>
-                                    ))}
+                        </div>
+                    </div>
+
+                    <div className="kpi-card achievements-card">
+                        <h3>Latest Achievements</h3>
+                        <div className="achievement-mini-list">
+                            {latestAchievements.map((achievement) => (
+                                <div className="achievement-mini-item" key={achievement}>
+                                    <span>{achievement}</span>
                                 </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
                 </div>
