@@ -188,6 +188,13 @@ const Hero = () => {
 
 // About section component
 const About = () => {
+    const classroomVenues = [
+        { name: "IT 1st yr", venue: "D31" },
+        { name: "IT 2nd yr", venue: "I33" },
+        { name: "IT 3rd yr", venue: "I32" },
+        { name: "IT 4th yr", venue: "I31" }
+    ];
+
     const labs = [
         { name: "RDBMS Lab", venue: "A21" },
         { name: "Data Science Lab", venue: "A22" },
@@ -291,13 +298,29 @@ const About = () => {
 
                     <div className="kpi-card labs-card">
                         <h3>IT Labs & Venues</h3>
-                        <div className="labs-list">
-                            {labs.map((lab) => (
-                                <div className="lab-item" key={lab.name}>
-                                    <span>{lab.name}</span>
-                                    <strong>{lab.venue}</strong>
+                        <div className="venue-groups">
+                            <div className="venue-group">
+                                <h4>Classroom Venues</h4>
+                                <div className="venue-list">
+                                    {classroomVenues.map((classroom) => (
+                                        <div className="venue-item" key={classroom.name}>
+                                            <span>{classroom.name}</span>
+                                            <strong>{classroom.venue}</strong>
+                                        </div>
+                                    ))}
                                 </div>
-                            ))}
+                            </div>
+                            <div className="venue-group">
+                                <h4>Labs</h4>
+                                <div className="venue-list">
+                                    {labs.map((lab) => (
+                                        <div className="venue-item" key={lab.name}>
+                                            <span>{lab.name}</span>
+                                            <strong>{lab.venue}</strong>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

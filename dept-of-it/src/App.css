@@ -568,7 +568,7 @@ body {
 }
 
 .placement-card {
-  grid-row: span 2;
+  grid-column: 1;
 }
 
 .placement-chart-wrap {
@@ -778,16 +778,34 @@ body {
 }
 
 .labs-card {
+  grid-column: 1;
   min-height: 260px;
 }
 
-.labs-list {
-  display: grid;
-  gap: 14px;
+.venue-groups {
+  display: flex;
+  gap: 36px;
+  justify-content: space-between;
   margin-top: 22px;
 }
 
-.lab-item {
+.venue-group {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.venue-group h4 {
+  color: #0066cc;
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+
+.venue-list {
+  display: grid;
+  gap: 12px;
+}
+
+.venue-item {
   align-items: center;
   background: #f7fbff;
   border-left: 4px solid #0066cc;
@@ -795,15 +813,15 @@ body {
   display: flex;
   justify-content: space-between;
   gap: 18px;
-  padding: 14px 16px;
+  padding: 13px 16px;
 }
 
-.lab-item span {
+.venue-item span {
   color: #1a1a1a;
   font-weight: 700;
 }
 
-.lab-item strong {
+.venue-item strong {
   color: #667085;
   font-size: 13px;
   text-align: right;
@@ -819,8 +837,14 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .placement-card {
-    grid-row: auto;
+  .placement-card,
+  .labs-card {
+    grid-column: auto;
+  }
+
+  .venue-groups {
+    flex-direction: column;
+    gap: 24px;
   }
 
   .placement-chart {
