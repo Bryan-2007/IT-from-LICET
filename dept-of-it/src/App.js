@@ -189,10 +189,9 @@ const Hero = () => {
 // About section component
 const About = () => {
     const labs = [
-        { name: "Programming Lab", venue: "IT Department Lab" },
-        { name: "Networks Lab", venue: "IT Department Lab" },
-        { name: "Data Science Lab", venue: "IT Department Lab" },
-        { name: "Project Lab", venue: "IT Department Lab" }
+        { name: "RDBMS Lab", venue: "A21" },
+        { name: "Data Science Lab", venue: "A22" },
+        { name: "Programming Lab", venue: "A23" }
     ];
 
     return (
