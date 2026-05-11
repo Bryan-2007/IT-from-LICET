@@ -827,6 +827,28 @@ body {
   text-align: right;
 }
 
+.achievements-mini {
+  flex: 0.95 1 0;
+}
+
+.achievement-mini-list {
+  display: grid;
+  gap: 12px;
+}
+
+.achievement-mini-item {
+  background: #fff8ef;
+  border-left: 4px solid #f4a62a;
+  border-radius: 6px;
+  padding: 13px 16px;
+}
+
+.achievement-mini-item span {
+  color: #1a1a1a;
+  font-size: 14px;
+  font-weight: 700;
+}
+
 @media (max-width: 900px) {
   .kpi-dashboard {
     padding: 64px 24px;

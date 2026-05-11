@@ -201,6 +201,11 @@ const About = () => {
         { name: "Programming Lab", venue: "A23" }
     ];
 
+    const latestAchievements = [
+        "Prof. Sherill Sophie Maria Vincent completed PhD on AI-driven learning systems",
+        "2nd year Abhishek won $2000 at ETHGlobal 2026"
+    ];
+
     return (
         <>
             <section className="about" id="about">
@@ -317,6 +322,16 @@ const About = () => {
                                         <div className="venue-item" key={lab.name}>
                                             <span>{lab.name}</span>
                                             <strong>{lab.venue}</strong>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className="venue-group achievements-mini">
+                                <h4>Latest Achievements</h4>
+                                <div className="achievement-mini-list">
+                                    {latestAchievements.map((achievement) => (
+                                        <div className="achievement-mini-item" key={achievement}>
+                                            <span>{achievement}</span>
                                         </div>
                                     ))}
                                 </div>
