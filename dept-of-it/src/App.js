@@ -209,6 +209,10 @@ const About = () => {
     return (
         <>
             <section className="about" id="about">
+                <div className="about-page-title">
+                    <h1>DEPARTMENT OF INFORMATION TECHNOLOGY</h1>
+                    <p>LOYOLA ICAM COLLEGE OF ENGINEERING &amp; TECHNOLOGY</p>
+                </div>
                 <h2>About Us</h2>
 
                 <p>
