@@ -471,7 +471,7 @@ body {
 }
 
 .about-page-title h1 {
-  color: #1a1a1a;
+  color: #0066cc;
   font-size: 42px;
   font-weight: 800;
   line-height: 1.18;
@@ -479,7 +479,7 @@ body {
 }
 
 .about-page-title p {
-  color: #0066cc;
+  color: #555;
   font-size: 24px;
   font-weight: 800;
   line-height: 1.3;
