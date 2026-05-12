@@ -35,12 +35,28 @@ body {
 /* navbar logo styling */
 
 .logo {
+  align-items: center;
+  color: #0066cc;
+  display: flex;
+  font-family: 'Georgia', serif;
   font-size: 26px;
   font-weight: 700;
+  gap: 12px;
   letter-spacing: 1px;
-  color: #0066cc;
-  font-family: 'Georgia', serif;
   text-decoration: none;
+}
+
+.logo-image {
+  display: block;
+  height: 52px;
+  object-fit: contain;
+  width: auto;
+}
+
+.logo-text {
+  align-items: baseline;
+  display: inline-flex;
+  gap: 7px;
 }
 
 /* logo emphasis styling */

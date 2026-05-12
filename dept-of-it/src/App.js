@@ -20,7 +20,10 @@ const Navbar = ({ currentPage, onNavigate }) => {
     return (
         <nav className="navbar">
             <a className="logo" href="/" onClick={(event) => onNavigate(event, '/')}>
-                <span className="logo-main">IT</span> <span className="logo-sub">OF LICET</span>
+                <img className="logo-image" src="/licet-logo.png" alt="LICET logo" />
+                <span className="logo-text">
+                    <span className="logo-main">IT</span> <span className="logo-sub">OF LICET</span>
+                </span>
             </a>
             
             <ul className="nav-links">
