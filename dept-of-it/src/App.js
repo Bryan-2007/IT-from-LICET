@@ -488,22 +488,45 @@ const Team = () => {
 const Footer = ({ currentPage, onNavigate }) => {
     return (
         <footer>
-            <h3>LICET - Information Technology Department</h3>
-            <ul className="footer-links">
-                {pages.map((page) => (
-                    <li key={page.key}>
-                        <a
-                            className={currentPage === page.key ? 'active-link' : ''}
-                            href={page.path}
-                            onClick={(event) => onNavigate(event, page.path)}
-                        >
-                            {page.label}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-            <p>&copy; 2024 LICET IT Department. All rights reserved.</p>
-            <p>Empowering Tomorrow's Technology Leaders</p>
+            <div className="footer-content">
+                <div className="footer-brand">
+                    <h3>LICET - Information Technology Department</h3>
+                    <p>Empowering Tomorrow's Technology Leaders</p>
+                    <ul className="footer-links">
+                        {pages.map((page) => (
+                            <li key={page.key}>
+                                <a
+                                    className={currentPage === page.key ? 'active-link' : ''}
+                                    href={page.path}
+                                    onClick={(event) => onNavigate(event, page.path)}
+                                >
+                                    {page.label}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div className="footer-contact-block">
+                    <h4>Official Contact Numbers</h4>
+                    <p><strong>Main College Office:</strong> +91-44-28178490</p>
+                    <p><strong>Campus Reception:</strong> +91-44-28178200</p>
+                    <p><strong>Admission Queries:</strong> 9003813339</p>
+                    <p><strong>Placement Office:</strong> 9003825597 or 9600412506</p>
+                    <p><strong>Fax:</strong> +91-44-28178493</p>
+                </div>
+
+                <div className="footer-contact-block">
+                    <h4>Additional Contact Info</h4>
+                    <p><strong>General Email:</strong> licet@licet.ac.in</p>
+                    <p><strong>Admission Email:</strong> admissions@licet.ac.in</p>
+                    <p><strong>Physical Address:</strong> LICET, Loyola Campus, Nungambakkam, Chennai - 600034.</p>
+                </div>
+            </div>
+
+            <div className="footer-bottom">
+                <p>&copy; 2024 LICET IT Department. All rights reserved.</p>
+            </div>
         </footer>
     );
 };
