@@ -594,6 +594,10 @@ body {
 
 .placement-chart:hover,
 .placement-chart:focus-within {
+  transform: scale(1.02);
+}
+
+.placement-chart::before {
   background: conic-gradient(
     #00a6a6 0 30%,
     #3157a4 30% 33%,
@@ -606,7 +610,20 @@ body {
     #8f5ac7 85% 94%,
     #0f9d8f 94% 100%
   );
-  transform: scale(1.02);
+  border-radius: inherit;
+  content: "";
+  inset: 0;
+  opacity: 0;
+  position: absolute;
+  transform: rotate(-14deg) scale(0.9);
+  transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 0;
+}
+
+.placement-chart:hover::before,
+.placement-chart:focus-within::before {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
 }
 
 .placement-chart::after {
@@ -616,6 +633,7 @@ body {
   height: 58%;
   position: absolute;
   width: 58%;
+  z-index: 1;
 }
 
 .placement-chart > span {
