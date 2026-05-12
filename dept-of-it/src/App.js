@@ -43,7 +43,7 @@ const Navbar = ({ currentPage, onNavigate }) => {
     );
 };
 
-// Film Reel component with old film effect
+// Modern cinematic gallery component
 const FilmReel = ({ isOpen, onClose }) => {
     const [imageList, setImageList] = useState([]);
 
@@ -57,100 +57,40 @@ const FilmReel = ({ isOpen, onClose }) => {
                 return response.json();
             })
             .then((data) => {
-                const loadedImages = data.images || [];
-                const images = Array.from({ length: 45 }, (_, i) => ({
-                    id: i,
-                    src: loadedImages.length ? `/images/${loadedImages[i % loadedImages.length]}` : null,
-                    row: Math.floor(i / 15) + 1
-                }));
-
-                setImageList(images);
+                const uniqueImages = Array.from(new Set(data.images || []));
+                setImageList(uniqueImages.map((imageName, index) => ({
+                    id: imageName,
+                    src: `/images/${imageName}`,
+                    title: `Department moment ${index + 1}`
+                })));
             })
             .catch((error) => {
                 console.error('Error loading images:', error);
-                setImageList(Array.from({ length: 45 }, (_, i) => ({
-                    id: i,
-                    src: null,
-                    row: Math.floor(i / 15) + 1
-                })));
+                setImageList([]);
             });
     }, []);
 
-    const row1 = imageList.filter(img => img.row === 1);
-    const row2 = imageList.filter(img => img.row === 2);
-    const row3 = imageList.filter(img => img.row === 3);
-
-    const ImageFrame = ({ imageSrc }) => {
-        if (imageSrc) {
-            return <img className="film-frame-image" src={imageSrc} alt="Department event" />;
-        }
-
-        return <div className="image-frame"></div>;
-    };
-
     return (
         <div id="film-reel" className={`film-reel-section ${isOpen ? 'film-reel-open' : ''}`}>
-            {/* Old film overlay effect */}
-            <div className="film-overlay"></div>
-            
-            {/* Film reel container */}
-            <div className="film-reel-container">
-                {/* Row 1: Scroll Left to Right */}
-                <div className="film-row row-1">
-                    <div className="film-scroll-track">
-                        {row1.map((img) => (
-                            <div key={`row1-${img.id}`} className="film-image">
-                                <ImageFrame imageSrc={img.src} />
-                            </div>
-                        ))}
-                        {row1.map((img) => (
-                            <div key={`row1-dup-${img.id}`} className="film-image">
-                                <ImageFrame imageSrc={img.src} />
-                            </div>
-                        ))}
+            <div className="gallery-shell">
+                <div className="gallery-header">
+                    <div>
+                        <p>Department Gallery</p>
+                        <h2>Moments from LICET IT</h2>
                     </div>
+                    <button className="film-close-button" type="button" onClick={onClose} aria-label="Close photo display">
+                        Close
+                    </button>
                 </div>
 
-                {/* Row 2: Scroll Right to Left */}
-                <div className="film-row row-2">
-                    <div className="film-scroll-track">
-                        {row2.map((img) => (
-                            <div key={`row2-${img.id}`} className="film-image">
-                                <ImageFrame imageSrc={img.src} />
-                            </div>
-                        ))}
-                        {row2.map((img) => (
-                            <div key={`row2-dup-${img.id}`} className="film-image">
-                                <ImageFrame imageSrc={img.src} />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Row 3: Scroll Left to Right */}
-                <div className="film-row row-3">
-                    <div className="film-scroll-track">
-                        {row3.map((img) => (
-                            <div key={`row3-${img.id}`} className="film-image">
-                                <ImageFrame imageSrc={img.src} />
-                            </div>
-                        ))}
-                        {row3.map((img) => (
-                            <div key={`row3-dup-${img.id}`} className="film-image">
-                                <ImageFrame imageSrc={img.src} />
-                            </div>
-                        ))}
-                    </div>
+                <div className="cinematic-gallery" aria-label="Department photo gallery">
+                    {imageList.map((image) => (
+                        <figure className="gallery-frame" key={image.id}>
+                            <img src={image.src} alt={image.title} />
+                        </figure>
+                    ))}
                 </div>
             </div>
-
-            {/* Film grain and scratches */}
-            <div className="film-grain"></div>
-            <div className="film-scratches"></div>
-            <div className="film-dust"></div>
-            <button className="film-close-button" type="button" onClick={onClose} aria-label="Close photo display">
-                Close
-            </button>
         </div>
     );
 };
