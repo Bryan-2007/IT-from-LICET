@@ -156,6 +156,79 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
+.contact-overlay {
+  align-items: center;
+  background: rgba(10, 24, 44, 0.55);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 24px;
+  position: fixed;
+  z-index: 2000;
+}
+
+.contact-card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 24px 60px rgba(10, 24, 44, 0.28);
+  max-width: 420px;
+  padding: 34px;
+  position: relative;
+  text-align: left;
+  width: min(100%, 420px);
+}
+
+.contact-card h2 {
+  color: #0066cc;
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.contact-close-button {
+  align-items: center;
+  background: #eef3f8;
+  border: 0;
+  border-radius: 50%;
+  color: #1a1a1a;
+  cursor: pointer;
+  display: flex;
+  font-size: 18px;
+  font-weight: 800;
+  height: 34px;
+  justify-content: center;
+  line-height: 1;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  width: 34px;
+}
+
+.contact-close-button:hover {
+  background: #0066cc;
+  color: #ffffff;
+}
+
+.contact-details {
+  display: grid;
+  gap: 16px;
+}
+
+.contact-details p {
+  align-items: center;
+  color: #344054;
+  display: flex;
+  font-size: 17px;
+  font-weight: 700;
+  gap: 14px;
+  margin: 0;
+}
+
+.contact-details span {
+  font-size: 22px;
+  width: 28px;
+}
+
 /* film reel section styling */
 
 .film-reel-section {

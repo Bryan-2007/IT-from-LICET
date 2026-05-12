@@ -156,6 +156,7 @@ const FilmReel = ({ isOpen, onClose }) => {
 const Hero = () => {
     // State to manage film reel visibility
     const [showFilmReel, setShowFilmReel] = useState(false);
+    const [showContactOverlay, setShowContactOverlay] = useState(false);
 
     // Handle button click with smooth scroll
     const handleClickHere = () => {
@@ -179,8 +180,28 @@ const Hero = () => {
                 <p><strong>Proudly Presents</strong></p>
                 <p>Empowering the next generation of technology leaders at LICET with cutting-edge skills and industry expertise</p>
                 <button className="cta-button" onClick={handleClickHere}>Click Here!</button>
-                <button className="cta-button">Contact Us</button>
+                <button className="cta-button" onClick={() => setShowContactOverlay(true)}>Contact Us</button>
             </section>
+            {showContactOverlay && (
+                <div className="contact-overlay" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+                    <div className="contact-card">
+                        <button
+                            className="contact-close-button"
+                            type="button"
+                            onClick={() => setShowContactOverlay(false)}
+                            aria-label="Close contact information"
+                        >
+                            x
+                        </button>
+                        <h2 id="contact-title">Contact Us</h2>
+                        <div className="contact-details">
+                            <p><span aria-hidden="true">📧</span> info@licet.ac.in</p>
+                            <p><span aria-hidden="true">📞</span> +91-44-28178490</p>
+                            <p><span aria-hidden="true">📍</span> Nungambakkam, Chennai</p>
+                        </div>
+                    </div>
+                </div>
+            )}
             <FilmReel isOpen={showFilmReel} onClose={() => setShowFilmReel(false)} />
         </>
     );
