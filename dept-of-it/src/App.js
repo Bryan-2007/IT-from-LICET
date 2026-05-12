@@ -138,7 +138,7 @@ const Hero = () => {
                         </button>
                         <h2 id="contact-title">Contact Us</h2>
                         <div className="contact-details">
-                            <p><span aria-hidden="true">📧</span> info@licet.ac.in</p>
+                            <p><span aria-hidden="true">📧</span> licet@licet.ac.in</p>
                             <p><span aria-hidden="true">📞</span> +91-44-28178490</p>
                             <p><span aria-hidden="true">📍</span> Nungambakkam, Chennai</p>
                         </div>
