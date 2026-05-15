@@ -949,6 +949,7 @@ body {
   margin-bottom: 15px;
   font-size: 22px;
   font-weight: 600;
+  text-align: center;
 }
 
 .service-card p {
@@ -960,36 +961,109 @@ body {
 /* stats section styling */
 
 .stats {
-  padding: 80px 60px;
-  background: linear-gradient(135deg, #0066cc 0%, #004494 100%);
-  color: white;
+  padding: 86px 60px;
+  background: #eef3f8;
+  color: #1a1a1a;
+}
+
+.achievements-header {
+  max-width: 1200px;
+  margin: 0 auto 34px;
+  text-align: left;
+}
+
+.achievements-header p {
+  color: #0066cc;
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  text-transform: uppercase;
 }
 
 .stats h2 {
-  text-align: center;
-  font-size: 36px;
-  margin-bottom: 50px;
+  color: #1a1a1a;
+  font-size: 40px;
   font-weight: 700;
+  line-height: 1.2;
 }
 
-.stats-container {
+.achievement-metrics-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 40px;
-  max-width: 1000px;
-  margin: 0 auto;
+  gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  max-width: 1200px;
+  margin: 0 auto 30px;
+}
+
+.stat-item {
+  background: #ffffff;
+  border: 1px solid rgba(0, 102, 204, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(20, 42, 80, 0.08);
+  padding: 28px;
   text-align: center;
 }
 
 .stat-item h4 {
-  font-size: 44px;
-  font-weight: 700;
-  margin-bottom: 10px;
+  color: #0066cc;
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 12px;
 }
 
 .stat-item p {
-  font-size: 16px;
-  opacity: 0.9;
+  color: #667085;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.achievement-card-grid {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.achievement-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 102, 204, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(20, 42, 80, 0.08);
+  padding: 32px;
+}
+
+.achievement-card h3 {
+  color: #0066cc;
+  font-size: 22px;
+  margin-bottom: 18px;
+}
+
+.achievement-card ul {
+  display: grid;
+  gap: 13px;
+  list-style-position: inside;
+}
+
+.achievement-card li {
+  color: #475467;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.grait-card {
+  border-top: 4px solid #00a6a6;
+}
+
+@media (max-width: 900px) {
+  .stats {
+    padding: 64px 24px;
+  }
+
+  .achievement-card-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* team section styling */

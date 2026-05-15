@@ -406,26 +406,81 @@ const Services = () => {
 
 // Stats section component
 const Stats = () => {
+    const achievementMetrics = [
+        { value: "500+", label: "Successful Placements" },
+        { value: "70%", label: "Placement Record" },
+        { value: "20+", label: "Industry Partners" },
+        { value: "15+", label: "Years of Academic Excellence" }
+    ];
+
+    const facultyAchievements = [
+        "Prof. Sherill Sophie Maria Vincent completed PhD on AI-driven learning systems.",
+        "Faculty members mentor project-driven learning teams across web, data science, AI, and systems domains.",
+        "Faculty guide students through reviews, demonstrations, publications, and practical skill development."
+    ];
+
+    const studentAchievements = [
+        "2nd year Abhishek won $2000 at ETHGlobal 2026.",
+        "Students build and demonstrate team projects under individual faculty guidance.",
+        "Students actively participate in hackathons, coding events, seminars, and technical presentations."
+    ];
+
+    const graitServices = [
+        "GRAIT supports peer learning, technical exploration, and student-led innovation within the IT department.",
+        "Services include project mentoring, workshop coordination, technical event support, and collaborative learning sessions.",
+        "The organisation encourages practical exposure in web, AI, data science, databases, and open-ended project domains."
+    ];
+
+    const generalInfo = [
+        "The department focuses on industry-aligned technical education with practical learning outcomes.",
+        "Labs, classrooms, and project review spaces support hands-on academic development.",
+        "Students are encouraged to develop communication, teamwork, leadership, and professional presentation skills."
+    ];
+
+    const renderList = (items) => (
+        <ul>
+            {items.map((item) => (
+                <li key={item}>{item}</li>
+            ))}
+        </ul>
+    );
+
     return (
-        <section className="stats">
-            <h2>Our Achievements</h2>
-            <div className="stats-container">
-                <div className="stat-item">
-                    <h4>500+</h4>
-                    <p>Successful Placements</p>
-                </div>
-                <div className="stat-item">
-                    <h4>95%</h4>
-                    <p>Student Satisfaction</p>
-                </div>
-                <div className="stat-item">
-                    <h4>50+</h4>
-                    <p>International Recognition</p>
-                </div>
-                <div className="stat-item">
-                    <h4>20+</h4>
-                    <p>Industry Partners</p>
-                </div>
+        <section className="stats achievements-dashboard">
+            <div className="achievements-header">
+                <p>Department Progress</p>
+                <h2>Our Achievements</h2>
+            </div>
+
+            <div className="achievement-metrics-grid">
+                {achievementMetrics.map((metric) => (
+                    <div className="stat-item" key={metric.label}>
+                        <h4>{metric.value}</h4>
+                        <p>{metric.label}</p>
+                    </div>
+                ))}
+            </div>
+
+            <div className="achievement-card-grid">
+                <article className="achievement-card">
+                    <h3>Faculty Achievements</h3>
+                    {renderList(facultyAchievements)}
+                </article>
+
+                <article className="achievement-card">
+                    <h3>Student Achievements</h3>
+                    {renderList(studentAchievements)}
+                </article>
+
+                <article className="achievement-card grait-card">
+                    <h3>GRAIT and Its Services</h3>
+                    {renderList(graitServices)}
+                </article>
+
+                <article className="achievement-card">
+                    <h3>General Information</h3>
+                    {renderList(generalInfo)}
+                </article>
             </div>
         </section>
     );
