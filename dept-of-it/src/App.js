@@ -431,10 +431,16 @@ const Stats = () => {
         "The organisation encourages practical exposure in web, AI, data science, databases, and open-ended project domains."
     ];
 
-    const generalInfo = [
-        "The department focuses on industry-aligned technical education with practical learning outcomes.",
-        "Labs, classrooms, and project review spaces support hands-on academic development.",
-        "Students are encouraged to develop communication, teamwork, leadership, and professional presentation skills."
+    const industryPartners = [
+        "IBM",
+        "Microsoft",
+        "Cognizant",
+        "Infosys",
+        "Wipro",
+        "TCS",
+        "Amazon",
+        "Mahindra",
+        "Zoho"
     ];
 
     const renderList = (items) => (
@@ -477,9 +483,16 @@ const Stats = () => {
                     {renderList(graitServices)}
                 </article>
 
-                <article className="achievement-card">
-                    <h3>General Information</h3>
-                    {renderList(generalInfo)}
+                <article className="achievement-card partner-card">
+                    <div className="partner-card-header">
+                        <h3>Industry Partners</h3>
+                        <strong>20+</strong>
+                    </div>
+                    <div className="partner-logo-grid" aria-label="Industry partner logos">
+                        {industryPartners.map((partner) => (
+                            <span className="partner-logo" key={partner}>{partner}</span>
+                        ))}
+                    </div>
                 </article>
             </div>
         </section>
