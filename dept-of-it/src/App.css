@@ -902,22 +902,38 @@ body {
 .services h2 {
   font-size: 36px;
   color: #0066cc;
-  margin-bottom: 50px;
+  margin-bottom: 42px;
   font-weight: 700;
+}
+
+.field-section {
+  max-width: 1200px;
+  margin: 0 auto 54px;
+  text-align: left;
+}
+
+.field-section h3 {
+  color: #1a1a1a;
+  font-size: 24px;
+  margin-bottom: 22px;
+}
+
+.minor-field-section {
+  margin-bottom: 0;
 }
 
 .services-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
   margin: 0 auto;
 }
 
 .service-card {
   background: white;
-  padding: 40px 30px;
-  border-radius: 10px;
+  border-left: 4px solid #0066cc;
+  padding: 28px 26px;
+  border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   cursor: pointer;

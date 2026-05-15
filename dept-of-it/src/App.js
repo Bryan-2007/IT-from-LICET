@@ -314,43 +314,91 @@ const About = () => {
 };
 // Services section component
 const Services = () => {
-    const servicesData = [
+    const majorFields = [
         {
-            title: "Software Development",
-            description: "Advanced training in modern programming languages, frameworks, and development methodologies"
+            title: "Data Structures & Algorithms in C",
+            description: "Fundamentals, linked lists, stack, queue, tree, graphs, Dijkstra's, travelling salesman algorithms, and more."
         },
         {
-            title: "AI & ML",
-            description: "Comprehensive programs in machine learning, deep learning, and AI applications"
+            title: "Python Programming",
+            description: "Fundamentals, recursive functions, exception handling, and core programming practices."
         },
         {
-            title: "IOT",
-            description: "Hands-on experience with Azure, AWS, and GCP platforms for scalable solutions"
+            title: "Object Oriented Programming in JAVA",
+            description: "Fundamentals, classes and objects, inheritance, polymorphism, encapsulation, and more."
         },
         {
-            title: "Fullstack Development",
-            description: "Industry-standard security practices and ethical hacking certifications"
+            title: "Web Essentials",
+            description: "HTML, CSS, JS, XML, JSON, React, client-side, server-side, APIs, and servlets."
         },
         {
-            title: "Data Science and Analysis",
-            description: "Analytics and big data processing for business intelligence and insights"
+            title: "Database Management Systems",
+            description: "MySQL, Oracle, NoSQL databases, PostgreSQL, database connectivity, and advanced SQL topics."
         },
         {
-            title: "Web Development",
-            description: "Full-stack development with modern technologies and responsive design principles"
+            title: "Project Driven Learning",
+            description: "Team project works, individual faculty guidance, all domains allowed, project reviews and demonstrations by externals, and development of significant practical skills."
+        },
+        {
+            title: "Operating Systems with Focus on Linux",
+            description: "Linux, types of OS, threads, processes, core system functionalities, and working principles."
+        },
+        {
+            title: "Data Science & Analysis in Python",
+            description: "Statistical libraries, data visualisation, data analysis techniques, and training small AI models."
+        },
+        {
+            title: "Basic and Intermediate Mathematics for Engineers",
+            description: "Linear algebra, discrete mathematics, number theory, probability and statistics, matrices, and calculus."
         }
     ];
 
+    const minorFields = [
+        {
+            title: "Basic Chemistry for Engineers",
+            description: "Fundamental chemistry concepts required for qualified engineers."
+        },
+        {
+            title: "Basic Physics for Engineers",
+            description: "Fundamental physics concepts required for qualified engineers."
+        },
+        {
+            title: "Advanced English for Professional Communication",
+            description: "Writing professional letters, emails, professional speaking, and body language."
+        },
+        {
+            title: "Tamil Heritage",
+            description: "Heritage, history, and achievements of Tamil and Tamil people for qualified engineers."
+        },
+        {
+            title: "Public Skills",
+            description: "Public speaking, writing, active and passive communication, coordination, teamwork, icebreaking sessions, character development, and stage practices."
+        }
+    ];
+
+    const renderFieldCards = (fields) => fields.map((field) => (
+        <div key={field.title} className="service-card">
+            <h3>{field.title}</h3>
+            <p>{field.description}</p>
+        </div>
+    ));
+
     return (
         <section className="services" id="services">
-            <h2>Our Services & Programs</h2>
-            <div className="services-container">
-                {servicesData.map((service, index) => (
-                    <div key={index} className="service-card">
-                        <h3>{service.title}</h3>
-                        <p>{service.description}</p>
-                    </div>
-                ))}
+            <h2>Fields of Study</h2>
+
+            <div className="field-section">
+                <h3>Major Fields</h3>
+                <div className="services-container major-fields">
+                    {renderFieldCards(majorFields)}
+                </div>
+            </div>
+
+            <div className="field-section minor-field-section">
+                <h3>Minor Fields</h3>
+                <div className="services-container minor-fields">
+                    {renderFieldCards(minorFields)}
+                </div>
             </div>
         </section>
     );
