@@ -409,7 +409,6 @@ const Stats = () => {
     const achievementMetrics = [
         { value: "500+", label: "Successful Placements" },
         { value: "70%", label: "Placement Record" },
-        { value: "20+", label: "Industry Partners" },
         { value: "15+", label: "Years of Academic Excellence" }
     ];
 
@@ -468,6 +467,17 @@ const Stats = () => {
             </div>
 
             <div className="achievement-card-grid">
+                <article className="achievement-card partner-card">
+                    <div className="partner-card-header">
+                        <h3>Industry Partners</h3>
+                        <strong>20+</strong>
+                    </div>
+                    <div className="partner-logo-grid" aria-label="Industry partner logos">
+                        {industryPartners.map((partner) => (
+                            <span className="partner-logo" key={partner}>{partner}</span>
+                        ))}
+                    </div>
+                </article>
                 <article className="achievement-card">
                     <h3>Faculty Achievements</h3>
                     {renderList(facultyAchievements)}
@@ -481,18 +491,6 @@ const Stats = () => {
                 <article className="achievement-card grait-card">
                     <h3>GRAIT and Its Services</h3>
                     {renderList(graitServices)}
-                </article>
-
-                <article className="achievement-card partner-card">
-                    <div className="partner-card-header">
-                        <h3>Industry Partners</h3>
-                        <strong>20+</strong>
-                    </div>
-                    <div className="partner-logo-grid" aria-label="Industry partner logos">
-                        {industryPartners.map((partner) => (
-                            <span className="partner-logo" key={partner}>{partner}</span>
-                        ))}
-                    </div>
                 </article>
             </div>
         </section>
