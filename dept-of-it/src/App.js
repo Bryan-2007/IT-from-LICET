@@ -501,41 +501,125 @@ const Stats = () => {
 const Team = () => {
     const facultyData = [
         {
-            name: "Mr. Marshal Mano",
-            role: "Professor of WE"
+            name: "Ms Sherril Sophie Maria Vincent",
+            role: "Assistant Professor & Head of the Department",
+            email: "hodit@licet.ac.in",
+            image: "https://licet.ac.in/wp-content/uploads/2024/03/Untitled-design-4-1.png",
+            summary: "Teaching experience of over 11 years, with interests in mobile ad hoc networks, network security, machine learning, and cloud computing."
         },
         {
-            name: "Prof. Sherill Sophie Maria Vincent",
-            role: "AI & ML Specialist"
+            name: "Dr Juliana R",
+            role: "Professor",
+            email: "drjuliana@licet.ac.in",
+            image: "https://licet.ac.in/wp-content/uploads/2024/04/juli.png",
+            summary: "Specializes in wireless sensor networks, machine learning, IoT, and mobile computing, with over 21 years of teaching experience."
         },
         {
-            name: "Prof. Juliana",
-            role: "Cloud Architecture Expert"
+            name: "Dr Janani A",
+            role: "Associate Professor",
+            email: "janani.a@licet.ac.in",
+            image: "https://licet.ac.in/wp-content/uploads/2024/04/Untitled-design.png",
+            summary: "Specializes in data analytics, data science, artificial intelligence, and cyber security, with academic and administrative experience."
         },
         {
-            name: "Dr. Laila K",
-            role: "Cybersecurity Lead"
+            name: "Dr Shobana G",
+            role: "Assistant Professor",
+            email: "shobana.g@licet.ac.in",
+            image: "https://licet.ac.in/wp-content/uploads/2024/03/SHOBS-1-1.png",
+            summary: "Research expertise includes network security, vehicular ad hoc networks, and deep learning, with over 14 years of teaching experience."
         },
         {
-            name: "Prof. Sylvia Irish",
-            role: "Full stack Development Lead"
+            name: "Mr Marshal Mano C",
+            role: "Assistant Professor",
+            email: "marshalmano@licet.ac.in",
+            image: "https://licet.ac.in/wp-content/uploads/2021/03/453-1.jpg",
+            summary: "Holds a master's degree in Information Technology from MIT, Anna University, with interests in data science, IoT, and wireless communication."
         },
         {
-            name: "Prof. Deepa",
-            role: "Data Science Expert"
+            name: "Ms Meenalakshmi M",
+            role: "Assistant Professor",
+            email: "meenalakshmi.m@licet.ac.in",
+            image: "https://licet.ac.in/wp-content/uploads/2024/08/DSC_9448-scaled.webp",
+            summary: "Works in artificial intelligence, machine learning, and image processing, and is pursuing doctoral research at Anna University."
+        },
+        {
+            name: "Dr Laila K",
+            role: "Assistant Professor",
+            email: "laila.k@licet.ac.in",
+            image: "https://licet.ac.in/wp-content/uploads/2024/09/IMG_3206.webp",
+            summary: "Research interests include big data, recommendation systems, and social network analysis."
+        },
+        {
+            name: "Ms Deepa Johny",
+            role: "Assistant Professor",
+            email: "deepajohny@licet.ac.in",
+            image: "https://licet.ac.in/wp-content/uploads/2025/07/Ms.DeepaJohny-scaled.jpg",
+            summary: "Has academic and industry experience, with interests in machine learning, data science, and emerging technologies."
+        },
+        {
+            name: "Ms Sylvia Irish",
+            role: "Assistant Professor",
+            email: "sylviairish.s@licet.ac.in",
+            image: "https://licet.ac.in/wp-content/uploads/2025/07/Ms.-Sylvia-Irish-scaled.jpeg",
+            summary: "Has over 8 years of teaching and research experience, with specialization in medical imaging and machine learning."
         }
     ];
 
+    const staffData = [
+        {
+            name: "Mr Solomon Raja R",
+            role: "Network Administrator",
+            image: "https://licet.ac.in/wp-content/uploads/2021/03/0686.png"
+        },
+        {
+            name: "Ms Reni Priya PM",
+            role: "Lab Instructor",
+            image: "https://licet.ac.in/wp-content/uploads/2025/02/RENI-PRIYA_edited1.png"
+        },
+        {
+            name: "Ms Vijayalakshmi M",
+            role: "Lab Instructor",
+            image: "https://licet.ac.in/wp-content/uploads/2025/01/Ms-M-Vijayalakshmi-1024x1008.jpeg"
+        },
+        {
+            name: "Ms Flora Priyadharshini L",
+            role: "Lab Instructor",
+            image: "https://licet.ac.in/wp-content/uploads/2025/09/flora_priyadharshini-IT-1020x1024.jpg"
+        }
+    ];
+
+    const renderMemberCard = (member) => (
+        <div key={member.name} className="team-card">
+            <div className="faculty-image-placeholder" aria-hidden="true">
+                {member.image ? (
+                    <img src={member.image} alt="" />
+                ) : (
+                    <span>{member.name.split(' ').map((part) => part[0]).join('').slice(0, 2)}</span>
+                )}
+            </div>
+            <h3>{member.name}</h3>
+            <p className="faculty-role">{member.role}</p>
+            {member.email && <p className="faculty-email">{member.email}</p>}
+            {member.summary && <p className="faculty-summary">{member.summary}</p>}
+        </div>
+    );
+
     return (
         <section className="team" id="team">
-            <h2>Faculty & Leadership</h2>
-            <div className="team-container">
-                {facultyData.map((member, index) => (
-                    <div key={index} className="team-card">
-                        <h3>{member.name}</h3>
-                        <p>{member.role}</p>
-                    </div>
-                ))}
+            <h2>Faculty & Staff</h2>
+
+            <div className="team-section-block">
+                <h3>Faculty Members</h3>
+                <div className="team-container">
+                    {facultyData.map(renderMemberCard)}
+                </div>
+            </div>
+
+            <div className="team-section-block staff-section">
+                <h3>Non-Teaching Staff</h3>
+                <div className="team-container staff-container">
+                    {staffData.map(renderMemberCard)}
+                </div>
             </div>
         </section>
     );
