@@ -1189,9 +1189,9 @@ body {
   display: flex;
   height: 180px;
   justify-content: center;
-  margin: 0 auto 20px;
+  margin: 0 0 22px;
   overflow: hidden;
-  width: min(100%, 220px);
+  width: 100%;
 }
 
 .faculty-image-placeholder img {
@@ -1213,6 +1213,7 @@ body {
   font-size: 20px;
   margin-bottom: 8px;
   font-weight: 600;
+  text-align: center;
 }
 
 .team-card p {
