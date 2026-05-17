@@ -969,9 +969,8 @@ body {
 
 .service-card {
   background: white;
-  border-left: 4px solid #0066cc;
-  padding: 28px 26px;
-  border-radius: 50%;
+  padding: 40px 30px;
+  border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   cursor: pointer;
