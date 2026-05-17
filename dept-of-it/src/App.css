@@ -84,6 +84,41 @@ body {
   display: inline;
 }
 
+
+.menu-toggle {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  min-height: 42px;
+  min-width: 42px;
+  padding: 8px;
+}
+
+.menu-toggle span {
+  background: #0066cc;
+  border-radius: 999px;
+  display: block;
+  height: 3px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  width: 24px;
+}
+
+.menu-toggle-open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle-open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
 /* navbar options styling */
 
 .nav-links {
@@ -193,7 +228,7 @@ body {
   border-radius: 8px;
   box-shadow: 0 24px 60px rgba(10, 24, 44, 0.28);
   max-width: 420px;
-  padding: 0;
+  padding: 34px;
   position: relative;
   text-align: left;
   width: min(100%, 420px);
@@ -572,7 +607,7 @@ body {
   align-items: center;
   aspect-ratio: 1;
   background: conic-gradient(#0066cc 0 70%, #00a6a6 70% 100%);
-  border-radius: 8px;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   max-width: 320px;
@@ -617,7 +652,7 @@ body {
 
 .placement-chart::after {
   background: #ffffff;
-  border-radius: 8px;
+  border-radius: 50%;
   content: "";
   height: 58%;
   position: absolute;
@@ -669,7 +704,7 @@ body {
 }
 
 .breakdown-dot {
-  border-radius: 8px;
+  border-radius: 50%;
   display: inline-block;
   flex: 0 0 10px;
   height: 10px;
@@ -730,7 +765,7 @@ body {
 }
 
 .legend-dot {
-  border-radius: 8px;
+  border-radius: 50%;
   display: inline-block;
   height: 12px;
   width: 12px;
@@ -936,7 +971,7 @@ body {
   background: white;
   border-left: 4px solid #0066cc;
   padding: 28px 26px;
-  border-radius: 8px;
+  border-radius: 50%;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   cursor: pointer;
@@ -1360,3 +1395,240 @@ footer {
   }
 }
 
+
+@media (max-width: 1100px) {
+  .services-container {
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+  }
+
+  .team-container,
+  .staff-container {
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px 24px;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    background: #ffffff;
+    border-top: 1px solid rgba(0, 102, 204, 0.12);
+    display: none;
+    flex-basis: 100%;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 4px;
+    width: 100%;
+  }
+
+  .nav-links-open {
+    display: flex;
+  }
+
+  .nav-links li {
+    border-bottom: 1px solid rgba(0, 102, 204, 0.08);
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 14px 2px;
+  }
+
+  .nav-links a::after {
+    bottom: 7px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 72px 24px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .about {
+    margin: 48px auto;
+    padding: 36px 24px;
+    width: calc(100% - 32px);
+  }
+
+  .about-page-title h1 {
+    font-size: 34px;
+  }
+
+  .about-page-title p {
+    font-size: 20px;
+  }
+
+  .services,
+  .team {
+    padding: 64px 24px;
+  }
+
+  .services-container {
+    grid-template-columns: 1fr;
+  }
+
+  .field-section h3,
+  .team-section-block h3 {
+    text-align: center;
+  }
+
+  .footer-links {
+    gap: 10px 18px;
+  }
+}
+
+@media (max-width: 700px) {
+  .logo {
+    gap: 10px;
+  }
+
+  .logo-image {
+    height: 44px;
+    width: 44px;
+  }
+
+  .logo-main {
+    font-size: 26px;
+  }
+
+  .logo-sub {
+    font-size: 13px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .cta-button {
+    display: block;
+    margin: 10px auto;
+    width: min(100%, 240px);
+  }
+
+  .contact-card {
+    padding: 28px 20px;
+  }
+
+  .contact-card h2 {
+    font-size: 24px;
+    padding-right: 28px;
+  }
+
+  .contact-details p {
+    font-size: 15px;
+  }
+
+  .about-page-title h1 {
+    font-size: 28px;
+  }
+
+  .about-page-title p,
+  .about h2,
+  .services h2,
+  .team h2 {
+    font-size: 28px;
+  }
+
+  .kpi-header h2,
+  .stats h2 {
+    font-size: 30px;
+  }
+
+  .kpi-card,
+  .achievement-card,
+  .stat-item {
+    padding: 24px;
+  }
+
+  .placement-chart-wrap {
+    gap: 22px;
+  }
+
+  .placement-chart {
+    max-width: 260px;
+  }
+
+  .student-year-item,
+  .venue-item {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .achievement-card-grid,
+  .achievement-metrics-grid,
+  .team-container,
+  .staff-container {
+    grid-template-columns: 1fr;
+  }
+
+  .partner-card-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .faculty-image-placeholder {
+    height: 240px;
+  }
+
+  footer {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 420px) {
+  .navbar {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero,
+  .services,
+  .team,
+  .stats,
+  .kpi-dashboard {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .about {
+    width: calc(100% - 20px);
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .logo-text {
+    gap: 4px;
+  }
+
+  .logo-main {
+    font-size: 22px;
+  }
+
+  .logo-sub {
+    font-size: 12px;
+  }
+
+  .placement-breakdown {
+    width: min(240px, 86vw);
+  }
+}

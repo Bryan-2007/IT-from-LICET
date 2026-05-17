@@ -17,22 +17,41 @@ const getPageFromPath = () => {
 
 // Navbar component
 const Navbar = ({ currentPage, onNavigate }) => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const handleNavigate = (event, path) => {
+        setIsMenuOpen(false);
+        onNavigate(event, path);
+    };
+
     return (
         <nav className="navbar">
-            <a className="logo" href="/" onClick={(event) => onNavigate(event, '/')}>
+            <a className="logo" href="/" onClick={(event) => handleNavigate(event, '/')}>
                 <img className="logo-image" src="/licet-logo.png" alt="LICET logo" />
                 <span className="logo-text">
                     <span className="logo-main">IT</span> <span className="logo-sub">OF LICET</span>
                 </span>
             </a>
+
+            <button
+                className={`menu-toggle ${isMenuOpen ? 'menu-toggle-open' : ''}`}
+                type="button"
+                aria-label="Toggle navigation menu"
+                aria-expanded={isMenuOpen}
+                onClick={() => setIsMenuOpen((open) => !open)}
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             
-            <ul className="nav-links">
+            <ul className={`nav-links ${isMenuOpen ? 'nav-links-open' : ''}`}>
                 {pages.map((page) => (
                     <li key={page.key}>
                         <a
                             className={currentPage === page.key ? 'active-link' : ''}
                             href={page.path}
-                            onClick={(event) => onNavigate(event, page.path)}
+                            onClick={(event) => handleNavigate(event, page.path)}
                         >
                             {page.label}
                         </a>
